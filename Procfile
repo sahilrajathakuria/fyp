@@ -1,1 +1,1 @@
-web: gunicorn APiPro.wsgi --log-file -
+web: gunicorn APiPro.wsgi 
