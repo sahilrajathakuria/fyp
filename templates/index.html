@@ -1,0 +1,785 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Numerical Computing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet"> -->
+   {%load static %}
+    <link rel="stylesheet" href="{%static 'style2.css'%}" type="text/css">
+
+</head>
+
+<body>
+    <div class="outer" width="20px" hight="20">
+        <div class="header">
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+                <img src="../static/logo.jpg" alt="LOGO">
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    NonLinear Equation
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="javascript:NRM_();">Newton Rapson Method</a>
+                                    <a class="dropdown-item" href="javascript:FPIM_();">Fixed-Point Iteration</a>
+                                    <a class="dropdown-item" href="javascript:SM_();">Secant method</a>
+                                    <a class="dropdown-item" href="javascript:BM_();">Bisection method</a>
+                                    <a class="dropdown-item" href="javascript:RFM_();">Regula-Falsi method</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Polynomial
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="javascript:SONDDI_();"> second order Newton’s Divided
+                                        Difference</a>
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="javascript:NDDI_();">Newton’s Divided Difference</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Numerical
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="javascript:CTR_();"> Composite Trapezoidal rule</a>
+                                    <a class="dropdown-item" href="javascript:A_();">Composite Simpson’s 1/3 rule</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="javascript:B_();">Composite Simpson’s 3/8 rule</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Iterative Linear
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="javascript:JM_();">Jacobi method</a>
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="javascript:GSM_();">Gauss-Seidel method </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Direct Linear
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="javascript:GEM_();">Gaussian Elimination method</a>
+                                    <a class="dropdown-item" href="javascript:DM_();">Doolittle’s method</a>
+                                    <a class="dropdown-item" href="javascript:CM_();">Crout’s method</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="javascript:CSM_();"> Cholesky’s method</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Eigenvalues
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="javascript:PM_();">Eigenvalues Power method</a>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <p class="test"><strong>Don't know how to write mathematical functions?<br><a class="modal-trigger"
+                    href="javascript:mathNRM_();">View all mathematical functions.</a></strong></p>
+        <div id="mathNRM" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <h4 class="center">Supported Mathematical Functions</h4>
+                <p><span class="mathref">&radic;x = sqrt(x)</span><span class="mathref">&#8731;x =
+                        x^1/3</span><span class="mathref">&#8732;x = x^1/4</span><span class="mathref">x<sup>n</sup> =
+                        x^n</span><span class="mathref">log<sub>10</sub>(x)
+                        = log10(x)</span><span class="mathref">ln(x) = log(x)</span><span class="mathref">x<sup>y</sup>
+                        = pow(x,y)</span><span class="mathref">x<sup>3</sup> =
+                        cube(x)</span><span class="mathref">x<sup>2</sup> = square(x)</span><span class="mathref">sin(x)
+                        = sin(x)</span><span class="mathref">cos(x) =
+                        cos(x)</span><span class="mathref">tan(x) = tan(x)</span><span class="mathref">cosec(x) =
+                        csc(x)</span><span class="mathref">sec(x) =
+                        sec(x)</span><span class="mathref">cot(x) = cot(x)</span><span
+                        class="mathref">sin<sup>-1</sup>(x) = asin(x)</span><span class="mathref">cos<sup>-1</sup>(x) =
+                        acos(x)</span><span class="mathref">tan<sup>-1</sup>(x) = atan(x)</span><span
+                        class="mathref">cosec<sup>-1</sup>(x) = acsc(x)</span><span class="mathref">sec<sup>-1</sup>(x)
+                        = asec(x)</span><span class="mathref">cot<sup>-1</sup>(x) = acot(x)</span><span
+                        class="mathref">sinh(x) =
+                        sinh(x)</span><span class="mathref">cosh(x) = cosh(x)</span><span class="mathref">tanh(x) =
+                        tanh(x)</span><span class="mathref">cosech(x) =
+                        csch(x)</span><span class="mathref">sech(x) = sech(x)</span><span class="mathref">coth(x) =
+                        coth(x)</span><span class="mathref">sinh<sup>-1</sup>(x) =
+                        asinh(x)</span><span class="mathref">cos<sup>-1</sup>(x) = acosh(x)</span><span
+                        class="mathref">tanh<sup>-1</sup>(x) = atanh(x)</span><span
+                        class="mathref">cosech<sup>-1</sup>(x) = acsch(x)</span><span
+                        class="mathref">sech<sup>-1</sup>(x) = asech(x)</span><span class="mathref">coth<sup>-1</sup>(x)
+                        = acoth(x)</span></p>
+            </div>
+            <div class="modal-footer"><a href="https://mathjs.org/docs/reference/functions.html"
+                    class="waves-effect waves-green btn-flat">View All</a><a href="javascript:closeNRM_();"
+                    class="modal-close waves-effect waves-green btn-flat">Close</a></div>
+        </div>
+        <div id="NRM" class="get_in_touch imgClass1">
+            <section>
+                <h1 class="title">Newton Rapson Method</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="fnrm" class="input-text" type="text" name=""
+                                placeholder="Enter Function ( f(x) )" required>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="nnrm" class="input-text" type="number" name="" placeholder="Max. Step (N)"
+                                required>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="gnrm" class="input-text" type="number" name="" placeholder="Guess 1 (x0)"
+                                required>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitNRM()" value="submit" name="nr"
+                                required>
+                        </div>
+                        <div class="form-field col-lg-12" id="errornrm">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Iteration (K)</th>
+                        <th>X(k)</th>
+                        <th>F(k)</th>
+                        <th>Relative Error</th>
+                    </tr>
+                </thead>
+                <tbody id="tabody">
+                </tbody>
+            </table>
+        </div>
+        <div id="FPIM" class="get_in_touch imgClass2">
+            <section>
+                <h1 class="title">Fixed-Point Iteration</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="fpim" class="input-text" type="text" name=""
+                                placeholder="Enter Equcation one ( eq(x) )" required>
+                        </div>
+                        <div class="form-field col-lg-12">
+                            <input id="dnrm" class="input-text" type="text" name=""
+                                placeholder="Enter Equcation two ( eq(x) )" required>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="efpim" class="input-text" type="number" name="" placeholder="Error (e)" required>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="nfpim" class="input-text" type="number" name="" placeholder="Max. Step (N)">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="gfpim" class="input-text" type="number" name="" placeholder="Guess 1 (x0)">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitFPIM()" value="submit" name="fpim">
+                        </div>
+                        <div class="form-field col-lg-12" id="errorfpim">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>X(k)</th>
+                        <th>F(k)</th>
+                        <th>Relative Error</th>
+                    </tr>
+                </thead>
+                <tbody id="fiptabody">
+                </tbody>
+            </table>
+        </div>
+        <div id="SM" class="get_in_touch imgClass3">
+            <section>
+                <h1 class="title">Secant method</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="sf" class="input-text" type="text" name="" placeholder="Enter equestion like 4*x + sin(x) - exp(x):"
+                                required>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="sg" class="input-text" type="number" name=""
+                                placeholder="Enter First Guess:">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="sdf" class="input-text" type="number" name=""
+                                placeholder="Enter Second Guess:">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="se" class="input-text" type="number" name="" placeholder="Tolerable Error:">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="sn" class="input-text" type="number" name="" placeholder="Maximum Step:">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitSM()" value="SMsubmit" name="sm">
+                        </div>
+                        <div class="form-field col-lg-12" id="errorsm">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover table-bordered ">
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>X0</th>
+                        <th>X1</th>
+                        <th>X2</th>
+                        <th>F(x2)</th>
+                        <th>Error</th>
+                    </tr>
+                </thead>
+                <tbody id="Stabody">
+                </tbody>
+            </table>
+        </div>
+        <div id="BM" class="get_in_touch imgClass4">
+            <section>
+                <h1 class="title">Bisection method</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="bf" class="input-text" type="text" name="" placeholder="Enter equestion like 4*x + sin(x) - exp(x):">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="bg" class="input-text" type="number" name=""
+                                placeholder="Enter First Guess:">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="bdf" class="input-text" type="number" name=""
+                                placeholder="Enter Second Guess:">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="be" class="input-text" type="number" name="" placeholder="Tolerable Error:">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="bn" class="input-text" type="number" name="" placeholder="Maximum Step:">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitBM()" value="submit" name="bm">
+                        </div>
+                        <div class="form-field col-lg-12" id="errorbm">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>X0</th>
+                        <th>X1</th>
+                        <th>X2</th>
+                        <th>F(x2)</th>
+                        <th>Error</th>
+                    </tr>
+                </thead>
+                <tbody id="BMtabody">
+                </tbody>
+            </table>
+        </div>
+        <div id="RFM" class="get_in_touch imgClass5">
+            <section>
+                <h1 class="title">Regula-Falsi method</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="rff" class="input-text" type="text" name=""
+                                placeholder="Enter equestion like 4*x + sin(x) - exp(x):">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="rfg" class="input-text" type="number" name=""
+                                placeholder="Enter First Guess:">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="rfdf" class="input-text" type="number" name=""
+                                placeholder="Enter First Guess:">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="rfe" class="input-text" type="number" name="" placeholder="Tolerable Error:">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="rfn" class="input-text" type="number" name="" placeholder="Maximum Step:">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitRFM()" value="submit" name="rfm">
+                        </div>
+                        <div class="form-field col-lg-12" id="errorrfm">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>a</th>
+                        <th>b</th>
+                        <th>ck</th>
+                        <th>f(c)</th>
+                        <th>Error</th>
+                    </tr>
+                </thead>
+                <tbody id="RFMtabody">
+                </tbody>
+            </table>
+        </div>
+        <div id="SONDDI" class="get_in_touch imgClass6">
+            <section>
+                <h1 class="title">second order Newton’s Divided Difference</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="sonx" class="input-text" type="text" name="" placeholder="Enter(X) 1,2,3 ">
+                        </div>
+                        <div class="form-field col-lg-12">
+                            <input id="sonf" class="input-text" type="text" name="" placeholder="Enter(F) 2,3,4">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="sonxp" class="input-text" type="number" name="" placeholder="Enter XP">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitSONDDI()" value="submit" name="rfm">
+                        </div>
+                        <div class="col-lg-6">
+                            <h1>Result:</h1>
+                        </div>
+                        <div class="col-lg-6" id="h2son">
+                            <h2>0.00</h2>
+                        </div>
+                        <div class="form-field col-lg-12" id="errorsonddi">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="NDDI" class="get_in_touch imgClass7">
+            <section>
+                <h1 class="title">Newton’s Divided Difference</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="nddix" class="input-text" type="text" name="" placeholder="Enter(X) 1,2,3 ">
+                        </div>
+                        <div class="form-field col-lg-12">
+                            <input id="nddif" class="input-text" type="text" name="" placeholder="Enter(F) 1,2,3 ">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="nddixp" class="input-text" type="number" name="" placeholder="Enter XP">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitNDDI()" value="submit" name="rfm">
+                        </div>
+                        <div class="col-lg-6">
+                            <h1>Result:</h1>
+                        </div>
+                        <div class="col-lg-6" id="h2nddi">
+                            <h2>0.00</h2>
+                        </div>
+                        <div class="form-field col-lg-12" id="errornddi">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="CTR" class="get_in_touch imgClass8">
+            <section>
+                <h1 class="title">Composite Trapezoidal rule</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="ctrf" class="input-text" type="text" name=""
+                                placeholder="Enter Function ( f(x) )">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="ctrl" class="input-text" type="number" name=""
+                                placeholder="Lower limit of the integral (x0)">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="ctrh" class="input-text" type="number" name=""
+                                placeholder="Upper limit of the integral (x1)">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="ctrn" class="input-text" type="number" name=""
+                                placeholder="Number of subintervals">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitCTR()" value="submit" name="ctrm">
+                        </div>
+                        <div class="form-field col-lg-12" id="errorctr">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>j</th>
+                        <th>Xj</th>
+                        <th>F(xj)</th>
+                    </tr>
+                </thead>
+                <tbody id="CTRtabody">
+                </tbody>
+            </table>
+        </div>
+        <div id="A" class="get_in_touch imgClass9">
+            <section>
+                <h1 class="title">Composite Simpson’s 1/3 rule</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="ctraf" class="input-text" type="text" name=""
+                                placeholder="Enter Function ( f(x) )">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="ctral" class="input-text" type="number" name=""
+                                placeholder="Lower limit of the integral (x0)">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="ctrah" class="input-text" type="number" name=""
+                                placeholder="Upper limit of the integral (x1)">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="ctran" class="input-text" type="number" name=""
+                                placeholder="Number of subintervals">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitA()" value="submit" name="ctram">
+                        </div>
+                        <div class="form-field col-lg-12" id="errora">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>j</th>
+                        <th>Xj</th>
+                        <th>F(xj)</th>
+                    </tr>
+                </thead>
+                <tbody id="Atabody">
+                </tbody>
+            </table>
+        </div>
+        <div id="B" class="get_in_touch imgClass10">
+            <section>
+                <h1 class="title">Composite Simpson’s 3/8 rule</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="tbf" class="input-text" type="text" name=""
+                                placeholder="Enter Function ( f(x) )">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="tbl" class="input-text" type="number" name=""
+                                placeholder="Lower limit of the integral (x0)">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="tbh" class="input-text" type="number" name=""
+                                placeholder="Upper limit of the integral (x1)">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="tbn" class="input-text" type="number" name=""
+                                placeholder="Number of subintervals">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitB()" value="submit" name="ctrbm">
+                        </div>
+                        <div class="form-field col-lg-12" id="errorb">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>j</th>
+                        <th>Xj</th>
+                        <th>F(xj)</th>
+                    </tr>
+                </thead>
+                <tbody id="Btabody">
+                </tbody>
+            </table>
+        </div>
+        <div id="JM" class="get_in_touch imgClass11">
+            <section>
+                <h1 class="title">Jacobi method</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="jmsys" class="input-text" type="text" name="" placeholder="Enter Variable with , sperated like x,y,z">
+                        </div>
+                        <div class="form-field col-lg-12">
+                            <input id="jmeq" class="input-text" type="text" name="" placeholder="Enter eq with , sperated like 0.4*x+0.12*z-1.4,0.64*y+0.32*z-1.6,0.12*x+0.32*y+0.56*z5.4 ">
+                        </div>
+                        <div class="form-field col-lg-12">
+                            <input id="ejb" class="input-text" type="number" name="" placeholder="Error (e)">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="maxjb" class="input-text" type="number" name="" placeholder="Max. Step (N)">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitJM()" value="submit" name="ctrbm">
+                        </div>
+                        <div class="form-field col-lg-12" id="errorjm">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>X1</th>
+                        <th>X2</th>
+                        <th>X3</th>
+                        <th>l norm</th>
+                    </tr>
+                </thead>
+                <tbody id="JMtabody">
+                </tbody>
+            </table>
+        </div>
+        <div id="GSM" class="get_in_touch imgClass12">
+            <section>
+                <h1 class="title">Gauss-Seidel method</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="gsmsys" class="input-text" type="text" name="" placeholder="Enter Variable with , sperated like x,y,z">
+                        </div>
+                        <div class="form-field col-lg-12">
+                            <input id="gsmeq" class="input-text" type="text" name="" placeholder="Enter eq with , sperated like 0.4*x+0.12*z-1.4,0.64*y+0.32*z-1.6,0.12*x+0.32*y+0.56*z5.4 ">
+                        </div>
+                        <div class="form-field col-lg-12">
+                            <input id="egsm" class="input-text" type="number" name="" placeholder="Error (e)">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input id="maxgsm" class="input-text" type="number" name="" placeholder="Max. Step (N)">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitGSM()" value="submit" name="ctrbm">
+                        </div>
+                        <div class="form-field col-lg-12" id="errorgsm">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>X1</th>
+                        <th>X2</th>
+                        <th>X3</th>
+                        <th>l norm</th>
+                    </tr>
+                </thead>
+                <tbody id="GSMtabody">
+                </tbody>
+            </table>
+        </div>
+        <div id="GEM" class="get_in_touch imgClass13">
+            <section>
+                <h1 class="title">Gaussian Elimination method</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="gemsys" class="input-text" type="text" name="" placeholder="Enter Variable with , sperated like x,y,z">
+                        </div>
+                        <div class="form-field col-lg-12">
+                            <input id="gemeq" class="input-text" type="text" name="" placeholder="Enter eq with , sperated like 0.4*x+0.12*z-1.4,0.64*y+0.32*z-1.6,0.12*x+0.32*y+0.56*z5.4 ">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitGEM()" value="submit" name="ctrbm">
+                        </div>
+                        <div class="form-field col-lg-12" id="errorgem">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>X1</th>
+                        <th>X2</th>
+                        <th>X3</th>
+                    </tr>
+                </thead>
+                <tbody id="GEMtabody">
+                </tbody>
+            </table>
+        </div>
+        <div id="DM" class="get_in_touch imgClass14">
+            <section>
+                <h1 class="title">Doolittle’s method</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="dmsys" class="input-text" type="text" name="" placeholder="Enter Variable with , sperated like x,y,z">
+                        </div>
+                        <div class="form-field col-lg-12">
+                            <input id="dmeq" class="input-text" type="text" name="" placeholder="Enter eq with , sperated like 0.4*x+0.12*z-1.4,0.64*y+0.32*z-1.6,0.12*x+0.32*y+0.56*z5.4 ">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitDM()" value="submit" name="ctrbm">
+                        </div>
+                        <div class="form-field col-lg-12" id="errordm">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>X1</th>
+                        <th>X2</th>
+                        <th>X3</th>
+                    </tr>
+                </thead>
+                <tbody id="DMtabody">
+                </tbody>
+            </table>
+        </div>
+        <div id="CM" class="get_in_touch imgClass1">
+            <section>
+                <h1 class="title">Crout’s method</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="cmsys" class="input-text" type="text" name="" placeholder="Enter Variable with , sperated like x,y,z">
+                        </div>
+                        <div class="form-field col-lg-12">
+                            <input id="cmeq" class="input-text" type="text" name="" placeholder="Enter eq with , sperated like 0.4*x+0.12*z-1.4,0.64*y+0.32*z-1.6,0.12*x+0.32*y+0.56*z5.4 ">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitCM()" value="submit" name="ctrbm">
+                        </div>
+                        <div class="form-field col-lg-12" id="errorcm">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>X1</th>
+                        <th>X2</th>
+                        <th>X3</th>
+                    </tr>
+                </thead>
+                <tbody id="CMtabody">
+                </tbody>
+            </table>
+        </div>
+        <div id="CSM" class="get_in_touch imgClass7">
+            <section>
+                <h1 class="title">Cholesky’s method</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="form-field col-lg-12">
+                            <input id="csmsys" class="input-text" type="text" name="" placeholder="Enter Variable with , sperated like x,y,z">
+                        </div>
+                        <div class="form-field col-lg-12">
+                            <input id="csmeq" class="input-text" type="text" name="" placeholder="Enter eq with , sperated like 0.4*x+0.12*z-1.4,0.64*y+0.32*z-1.6,0.12*x+0.32*y+0.56*z5.4 ">
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input class="submit-btn" type="button" onclick="submitCSM()" value="submit" name="ctrbm">
+                        </div>
+                        <div class="form-field col-lg-12" id="errorcsm">   
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>X1</th>
+                        <th>X2</th>
+                        <th>X3</th>
+                    </tr>
+                </thead>
+                <tbody id="CSMtabody">
+                </tbody>
+            </table>
+        </div>
+        <div id="PM" class="get_in_touch imgClass10">
+            <section>
+                <h1 class="title">Eigenvalues Power method</h1>
+                <div class="container">
+                    <div class="contact-from row">
+                        <div class="contact-from row">
+                            <div class="form-field col-lg-12">
+                                <input id="pmsys" class="input-text" type="text" name="" placeholder="Enter Variable with , sperated like x,y,z">
+                            </div>
+                            <div class="form-field col-lg-12">
+                                <input id="pmeq" class="input-text" type="text" name="" placeholder="Enter eq with , sperated like 0.4*x+0.12*z-1.4,0.64*y+0.32*z-1.6,0.12*x+0.32*y+0.56*z5.4 ">
+                            </div>
+                            <div class="form-field col-lg-6">
+                                <input class="submit-btn" type="button" onclick="submitPM()" value="submit" name="ctrbm">
+                            </div>
+                            <div class="form-field col-lg-12" id="errorpm">   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>X1</th>
+                        <th>X2</th>
+                        <th>X3</th>
+                    </tr>
+                </thead>
+                <tbody id="PMtabody">
+                </tbody>
+            </table>
+        </div>  
+    </div>
+    <div class="bottom">
+        <p>Project ID 36</p>
+    </div>
+   
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
+    </script>
+    <script type="text/javascript" src="{%static 'customs.js'%}"></script>
+
+
+</body>
+
+</html>
