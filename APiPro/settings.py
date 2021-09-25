@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import django_heroku
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','project-id-36.herokuapp.com','*']
 
-
+django_heroku.settings(locals())
 # Application definition
 
 INSTALLED_APPS = [
