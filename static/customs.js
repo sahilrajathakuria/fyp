@@ -954,7 +954,7 @@ function submitPM() {
   let sys = document.getElementById("pmsys").value;
   let eq = document.getElementById("pmeq").value;
   let pmdata = { sym: sys, eq: eq };
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com//user/nr/";
   let tname = "PMtabody";
   Eignrender(pmdata, URL, tname);
 }
@@ -1040,7 +1040,7 @@ function submitCSM() {
   let eq = document.getElementById("csmeq").value;
   let csmdata = { sym: sys, eq: eq };
   console.log(csmdata)
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "";
   let tname = "CSMtabody";
   DirectrenderCSM(csmdata, URL, tname);
 }
