@@ -7,7 +7,7 @@ function submitNRM() {
   n = Number(n);
   let nrmdata = { x: x, eq: eq, n: n };
   console.log(nrmdata);
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/nr/";
   let tname = "tabody";
   renderNR(nrmdata, URL, tname);
 }
@@ -954,7 +954,7 @@ function submitPM() {
   let sys = document.getElementById("pmsys").value;
   let eq = document.getElementById("pmeq").value;
   let pmdata = { sym: sys, eq: eq };
-  let URL = "https://project-id-36.herokuapp.com//user/nr/";
+  let URL = "https://project-id-36.herokuapp.com/";
   let tname = "PMtabody";
   Eignrender(pmdata, URL, tname);
 }
