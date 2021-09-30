@@ -71,7 +71,7 @@ function submitFPIM() {
   tol = Number(tol);
   let fpimdata = { x: x, eq1: eq1, eq2: eq2, n: n, tol: tol };
   console.log(fpimdata);
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/fpi";
   let tname = "fiptabody";
   render(fpimdata, URL, tname);
 }
@@ -135,7 +135,7 @@ function submitSM() {
   x1 = parseFloat(x1);
   let smdata = { x0: x0, x1: x1, eq: eq, tol: tol, n: n };
   console.log(smdata);
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/sm/";
   let tname = "Stabody";
   renderSM(smdata, URL, tname);
 }
@@ -203,7 +203,7 @@ function submitBM() {
   let x1 = document.getElementById("bdf").value;
   x1 = parseFloat(x1);
   let bmdata = { x0: x0, x1: x1, eq: eq, tol: tol, n: n };
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/bm/";
   let tname = "BMtabody";
   renderBM(bmdata, URL, tname);
 }
@@ -263,7 +263,7 @@ function submitRFM() {
   let x1 = document.getElementById("rfdf").value;
   x1 = parseFloat(x1);
   let bmdata = { x0: x0, x1: x1, eq: eq, tol: tol, n: n };
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/rfm/";
   let tname = "RFMtabody";
   renderRFM(bmdata, URL, tname);
 }
@@ -326,7 +326,7 @@ function submitCTR() {
   xn = parseFloat(xn);
   let ctrdata = { x0: x0, xn: xn, eq: eq, n: n };
   console.log(ctrdata);
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/ctr/";
   let hname = "CTRtabody";
   Numericrender(ctrdata, URL, hname);
 }
@@ -386,7 +386,7 @@ function submitA() {
   xn = parseFloat(xn);
   let adata = { x0: x0, xn: xn, eq: eq, n: n };
   console.log(adata);
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/csr3/";
   let hname = "Atabody";
   NumericrenderA(adata, URL, hname);
 }
@@ -449,7 +449,7 @@ function submitB() {
   xn = parseFloat(xn);
   let bdata = { x0: x0, xn: xn, eq: eq, n: n };
   console.log(bdata);
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/csr8/";
   let hname = "Btabody";
   NumericrenderB(bdata, URL, hname);
 }
@@ -516,7 +516,7 @@ function submitSONDDI() {
   let xp = document.getElementById("sonxp").value;
   xp = parseFloat(xp);
   let sondata = { x: xarr, xp: xp, f: farr };
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/sod/";
   let hname = "h2son";
   NumericrenderSONDDI(sondata, URL, hname);
 }
@@ -579,7 +579,7 @@ function submitNDDI() {
   let xp = document.getElementById("nddixp").value;
   xp = parseFloat(xp);
   let nddidata = { x: xarr, xp: xp, f: farr };
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/ndi/";
   let hname = "h2nddi";
   NumericrenderNDDI(nddidata, URL, hname);
 }
@@ -626,7 +626,7 @@ function submitJM() {
   n = Number(n);
   let jmdata = { sym: sys, eq: eq, tol: tol, n: n };
   console.log(jmdata);
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/jm/";
   let tname = "JMtabody";
   Iterativerender(jmdata, URL, tname);
 }
@@ -698,7 +698,7 @@ function submitGSM() {
   n = Number(n);
   let gsmdata = { sym: sys, eq: eq, tol: tol, n: n };
   console.log(gsmdata);
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/gsm/";
   let tname = "GSMtabody";
   IterativerenderGSM(gsmdata, URL, tname);
 }
@@ -759,7 +759,7 @@ function submitGEM() {
   let sys = document.getElementById("gemsys").value;
   let eq = document.getElementById("gemeq").value;
   let gemdata = { sym: sys, eq: eq };
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/gem/";
   let tname = "GEMtabody";
   Eignrender(gemdata, URL, tname);
 }
@@ -832,7 +832,7 @@ function submitDM() {
   let sys = document.getElementById("dmsys").value;
   let eq = document.getElementById("dmeq").value;
   let dmdata = { sym: sys, eq: eq };
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/dm/";
   let tname = "DMtabody";
   Directrender(dmdata, URL, tname);
 }
@@ -897,7 +897,7 @@ function submitCM() {
   let eq = document.getElementById("cmeq").value;
   let cmdata = { sym: sys, eq: eq };
   console.log(cmdata)
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/cm/";
   let tname = "CMtabody";
   DirectrenderCM(cmdata, URL, tname);
 }
@@ -954,7 +954,7 @@ function submitPM() {
   let sys = document.getElementById("pmsys").value;
   let eq = document.getElementById("pmeq").value;
   let pmdata = { sym: sys, eq: eq };
-  let URL = "https://project-id-36.herokuapp.com/";
+  let URL = "https://project-id-36.herokuapp.com/user/ev/";
   let tname = "PMtabody";
   Eignrender(pmdata, URL, tname);
 }
@@ -1040,7 +1040,7 @@ function submitCSM() {
   let eq = document.getElementById("csmeq").value;
   let csmdata = { sym: sys, eq: eq };
   console.log(csmdata)
-  let URL = "";
+  let URL =  "https://project-id-36.herokuapp.com/user/chm/";
   let tname = "CSMtabody";
   DirectrenderCSM(csmdata, URL, tname);
 }
