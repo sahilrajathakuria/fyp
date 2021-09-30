@@ -9,58 +9,58 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-#errorjm{
+#errorjm {
   color: red;
 }
-#errorgem{
+#errorgem {
   color: red;
 }
-#errorsonddi{
+#errorsonddi {
   color: red;
 }
-#errorpm{
+#errorpm {
   color: red;
 }
-#errornrm{
+#errornrm {
   color: red;
 }
-#errornddi{
+#errornddi {
   color: red;
 }
-#errorctr{
+#errorctr {
   color: red;
 }
-#errora{
+#errora {
   color: red;
 }
-#errorb{
+#errorb {
   color: red;
 }
-#errorcm{
+#errorcm {
   color: red;
 }
-#errordm{
+#errordm {
   color: red;
 }
-#errorcsm{
+#errorcsm {
   color: red;
 }
-#errorgsm{
+#errorgsm {
   color: red;
 }
-#errorgem{
+#errorgem {
   color: red;
 }
-#errorfpim{
+#errorfpim {
   color: red;
 }
-#errorsm{
+#errorsm {
   color: red;
 }
-#errorbm{
+#errorbm {
   color: red;
 }
-#errorrfm{
+#errorrfm {
   color: red;
 }
 
@@ -118,97 +118,57 @@
 .header {
   width: 100%;
 }
-.tbl{
+.tbl {
   margin-top: 170px;
   max-width: 800px;
   margin-left: 25%;
 }
-.dmtbl{
+.dmtbl {
   margin-top: 170px;
   max-width: 800px;
 }
-.test{
+.test {
   margin-top: 100px;
   text-align: center;
 }
-.test a{
+.test a {
   text-decoration: none;
   color: #29a9df;
 }
-.bottom{
+.bottom {
   border: 2px solid black;
-  position: relative;
-  bottom: 0px;
-  margin-top: 50%;
+  position: fixed;
+  bottom: 0;
   width: 100%;
   text-align: center;
   background-color: black;
   color: white;
   font-size: large;
-
 }
 
 .get_in_touch {
   width: 1400px;
-  margin: 80px auto;
-  position: absolute;
+  position: fixed;
   box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  margin-bottom: 50px;
-  border: 2px solid black;
+  /* display: flex !important; */
+}
+.movve{
+  flex: 2;
+}
+.tblclass{
+  flex: 2;
+  height: 500px;
+}
 
-}
-/* .imgClass1{
-  background-image: url('math1.jpg')
-}
-.imgClass2{
-  background-image: url('math2.jpg')
-}
-.imgClass3{
-  background-image: url('math3.jpg')
-}
-.imgClass4{
-  background-image: url('math4.jpg')
-}
-.imgClass5{
-  background-image: url('math5.jpg')
-}
-.imgClass6{
-  background-image: url('math6.jpg')
-}
-.imgClass7{
-  background-image: url('math7.jpg')
-}
-.imgClass8{
-  background-image: url('math8.jpg')
-}
-.imgClass9{
-  background-image: url('math9.jpg')
-}
-.imgClass10{
-  background-image: url('math10.jpg')
-}
-.imgClass11{
-  background-image: url('math11.jpg')
-}
-.imgClass12{
-  background-image: url('math12.jpg')
-}
-.imgClass13{
-  background-image: url('math13.jpg')
-}
-.imgClass14{
-  background-image: url('math14.jpg')
-} */
 
-.mathref{
+.mathref {
   margin: 10px;
   box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.1);
   text-align: justify;
-  
 }
 
 .get_in_touch .title {
@@ -237,7 +197,6 @@
   line-height: 26px;
   font-weight: 400;
   background: transparent;
-
 }
 .contact-from .input-text:focus + .label,
 .contact-from .input-text.not-empty + .label {
@@ -258,7 +217,9 @@
   text-transform: capitalize;
   transition: transform 0.2s ease-in-out;
 }
-h1,h2,h5{
+h1,
+h2,
+h5 {
   background: linear-gradient(to right, #29a9df 100%, #5543ca 0%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
